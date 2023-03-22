@@ -120,10 +120,10 @@ TextureImporter:
       name: GrassyTerrain
       rect:
         serializedVersion: 2
-        x: 92
-        y: 127
-        width: 52
-        height: 49
+        x: 98
+        y: 130
+        width: 44
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,6 +158,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Grass
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 145
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 0, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed40a8689c010429783e9601fe1bc86e
+      internalID: -4506981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -169,6 +190,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Grass: -4506981
       GrassyTerrain: -1198627365
       StoneTerrain: 661731338
   spritePackingTag: 
