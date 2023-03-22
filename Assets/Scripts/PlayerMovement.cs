@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(new Vector3(1 * Time.deltaTime, 0, 0));
+        }
     }
 }
