@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 277533674}
   - component: {fileID: 277533672}
   m_Layer: 3
-  m_Name: Floor (2)
+  m_Name: Trampoline 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2208a4a1000bf4984b959dabb585f25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 500
+  bounceForce: 15
 --- !u!1 &324553100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 433791465}
   - component: {fileID: 433791464}
   m_Layer: 3
-  m_Name: Floor (3)
+  m_Name: Trampoline 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2208a4a1000bf4984b959dabb585f25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 500
+  bounceForce: 15
 --- !u!212 &433791466
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BouncyPlatform : MonoBehaviour
 {
-    public float bounceForce;
+    public float bounceForce = 15;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
