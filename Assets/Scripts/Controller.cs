@@ -11,7 +11,6 @@ public class Controller : MonoBehaviour
 
     float horizontalMove = 0f;
     bool jump = false;
-    
 
 
 
@@ -38,4 +37,5 @@ public class Controller : MonoBehaviour
         controller.Move(horizontalMove, false, jump);
         jump = false;
     }
+
 }

@@ -32,8 +32,9 @@ public class CharacterController2D : MonoBehaviour
 	private Quaternion playerWorldRotation; 	// Same as above
 	Vector3 playerScaleWorld;
 
-	private Vector3 playerInitialPosition;
+	public Vector3 playerInitialPosition;
 	public GameObject deathDetector;
+	public GameOverScreen gameOverScreen;
 
 	private void Awake()
 	{
@@ -125,7 +126,8 @@ public class CharacterController2D : MonoBehaviour
 		}
 		else if (collision.gameObject == deathDetector){
 			Debug.Log("You died");
-			transform.position = playerInitialPosition;
+			GameOver();
+			// transform.position = playerInitialPosition;
 		}
 	}
 
@@ -144,4 +146,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+	public void GameOver(){
+        gameOverScreen.Setup(10); // 10 points
+    }
 }
