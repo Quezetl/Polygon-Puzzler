@@ -25,6 +25,10 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 	ContactFilter2D groundFilter;
 
+	// For moving platform:
+	public GameObject movingPlatform; // The player's foster parent
+	public GameObject characters; // The player's biological parent
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -88,4 +92,24 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	// If the player lands on a moving platform, it should stay put.
+	// The two functions below simply toggle the moving platform as the player's parent in order to make this work.
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		Debug.Log("Collison occurred!");
+		if (collision.gameObject == movingPlatform)
+		{
+			transform.SetParent(movingPlatform.transform);
+		}
+	}
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject == movingPlatform)
+		{
+			transform.SetParent(characters.transform);
+		}
+	}
+
 }
