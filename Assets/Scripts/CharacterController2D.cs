@@ -25,9 +25,12 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_wasCrouching = false;
 	ContactFilter2D groundFilter;
 
-	// For moving platform:
-	public GameObject movingPlatform; // The player's foster parent
-	public GameObject characters; // The player's biological parent
+	// For interacting with moving platforms:
+	public GameObject movingPlatform; 			// The player's foster parent
+	public GameObject characters; 				// The player's biological parent
+	private Vector2 playerWorldPosition; 		// Before the player is assigned to the moving platform as its parent
+	private Quaternion playerWorldRotation; 	// Same as above
+	Vector3 playerScaleWorld;
 
 	private void Awake()
 	{
@@ -100,7 +103,19 @@ public class CharacterController2D : MonoBehaviour
 		Debug.Log("Collison occurred!");
 		if (collision.gameObject == movingPlatform)
 		{
+			// Store player's position and rotation first:
+			// playerWorldPosition = transform.position;
+			// playerWorldRotation = transform.rotation;
+			// Store the child's global scale
+    		playerScaleWorld = transform.localScale;
+			Debug.Log("playerScaleWorld = " + playerScaleWorld);
+
+			// Then set the parent:
+			transform.localScale = playerScaleWorld;
 			transform.SetParent(movingPlatform.transform);
+			
+			Debug.Log("after setting parent, transform.localScale = " + transform.localScale);
+			// Debug.Log("Object scale: " + transform.localScale);
 		}
 	}
 
@@ -108,7 +123,14 @@ public class CharacterController2D : MonoBehaviour
 	{
 		if (collision.gameObject == movingPlatform)
 		{
+			
+
+			// Then reset the parent:
 			transform.SetParent(characters.transform);
+			// transform.localScale = playerScaleWorld;
+			// Set player's position and rotation back to the original values:
+			// transform.position = playerWorldPosition;
+			// transform.rotation = playerWorldRotation;
 		}
 	}
 
