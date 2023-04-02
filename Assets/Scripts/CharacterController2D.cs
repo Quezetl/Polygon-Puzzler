@@ -32,6 +32,9 @@ public class CharacterController2D : MonoBehaviour
 	private Quaternion playerWorldRotation; 	// Same as above
 	Vector3 playerScaleWorld;
 
+	private Vector3 playerInitialPosition;
+	public GameObject deathDetector;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -40,6 +43,9 @@ public class CharacterController2D : MonoBehaviour
 			OnLandEvent = new UnityEvent();
 
 		groundFilter.layerMask = m_WhatIsGround;
+
+		// Store player's starting position in case they die:
+		playerInitialPosition = transform.position;
 	}
 
 	private void FixedUpdate()
@@ -100,7 +106,7 @@ public class CharacterController2D : MonoBehaviour
 	// The two functions below simply toggle the moving platform as the player's parent in order to make this work.
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("Collison occurred!");
+		// Debug.Log("Collison occurred!");
 		if (collision.gameObject == movingPlatform)
 		{
 			// Store player's position and rotation first:
@@ -116,6 +122,10 @@ public class CharacterController2D : MonoBehaviour
 			
 			Debug.Log("after setting parent, transform.localScale = " + transform.localScale);
 			// Debug.Log("Object scale: " + transform.localScale);
+		}
+		else if (collision.gameObject == deathDetector){
+			Debug.Log("You died");
+			transform.position = playerInitialPosition;
 		}
 	}
 
