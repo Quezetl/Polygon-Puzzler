@@ -12,9 +12,6 @@ public class Controller : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     
-
-
-
     // Start is called before the first frame update
     void Start()
     {

@@ -6,8 +6,7 @@ public class FlagBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player touched object.");
-            Destroy(gameObject);
+            Debug.Log("Game Complete!");
         }
     }
 }
