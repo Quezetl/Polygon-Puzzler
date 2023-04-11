@@ -1,6 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
-
+using System.Runtime.CompilerServices;
 
 public class SquareGrow : MonoBehaviour
 {
@@ -12,12 +12,7 @@ public class SquareGrow : MonoBehaviour
     private Vector2 initialSize; 
     private bool canGrow;
     private bool flip;
-
     PhotonView view;
-    
-    void Awake()
-    {
-    }
 
     void Start()
     {
@@ -25,6 +20,8 @@ public class SquareGrow : MonoBehaviour
         flip = true;
         view = GetComponent<PhotonView>();
     }
+
+
 
     void Update()
     {
@@ -38,10 +35,7 @@ public class SquareGrow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!view.IsMine)
-        {
-            return;
-        }
+        
         top.localPosition = new Vector3(0, sprite.size.y / 2 , 0);
         bottom.localPosition = new Vector3(0, -sprite.size.y / 2 , 0);
         
@@ -57,26 +51,32 @@ public class SquareGrow : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            if (flip)
+            view.RPC("shapeChange", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    private void shapeChange()
+    {
+        if (flip)
+        {
+            if (canGrow)
             {
-                if (canGrow)
-                {
-                    Debug.Log("Growing");
-                    this.transform.localScale = new Vector2(this.transform.localScale.x, this.transform.localScale.y+growthRate * Time.deltaTime);
-                    //Vector2 newSize = sprite.size;
-                    //newSize.y += growthRate * Time.deltaTime;
-                    //sprite.size = newSize;
-                }
-            }
-            else if (!flip)
-            {
-                Debug.Log("Shrinking");
+                Debug.Log("Growing");
                 Vector2 newSize = sprite.size;
-                if (newSize.y < 2)
-                    return;
-                newSize.y -= growthRate * Time.deltaTime;
+                newSize.y += growthRate * Time.deltaTime;
                 sprite.size = newSize;
             }
         }
+        else if (!flip)
+        {
+            Debug.Log("Shrinking");
+            Vector2 newSize = sprite.size;
+            if (newSize.y < 2)
+                return;
+            newSize.y -= growthRate * Time.deltaTime;
+            sprite.size = newSize;
+        }
     }
 }
+
