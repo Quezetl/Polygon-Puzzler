@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 3099810698623100516}
   - component: {fileID: 5354063453145549882}
   - component: {fileID: 3808543880389967684}
+  - component: {fileID: 3172818356115154207}
   m_Layer: 7
   m_Name: Square Character
   m_TagString: Player
@@ -601,6 +602,7 @@ MonoBehaviour:
   lMask:
     serializedVersion: 2
     m_Bits: 8
+  sprite: {fileID: 4893699418397096936}
 --- !u!61 &4893699418397096941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -647,6 +649,8 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5354063453145549882}
+  - {fileID: 3808543880389967684}
+  - {fileID: 3172818356115154207}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -682,7 +686,7 @@ MonoBehaviour:
     SynchronizeEnabled: 1
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
+    InterpolateLerpSpeed: 1
 --- !u!114 &3808543880389967684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +694,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4893699418397096853}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
@@ -699,3 +703,16 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters: []
   m_SynchronizeLayers: []
+--- !u!114 &3172818356115154207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893699418397096853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35144820bcc25444bb8f0fd767d9423e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SmoothingDelay: 20
