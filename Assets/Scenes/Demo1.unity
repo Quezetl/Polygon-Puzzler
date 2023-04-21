@@ -1720,6 +1720,7 @@ GameObject:
   - component: {fileID: 1635740411}
   - component: {fileID: 1635740415}
   - component: {fileID: 1635740414}
+  - component: {fileID: 1635740416}
   m_Layer: 0
   m_Name: Flag
   m_TagString: Untagged
@@ -1852,6 +1853,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6191087, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1635740416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635740410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb79abcbe021daa468f0048edaa841a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevel: 3
 --- !u!1 &1690028765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,7 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58027d01da3564d47ad27c9882ba161b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4893699417595197501, guid: 3790f04ff54eefb4a9486bbe36b6d748, type: 3}
+  playerPrefab: {fileID: 8786022213445188887, guid: 05429abb00b702f4d939cce7f28a72f9, type: 3}
   minX: -1.62
   maxX: 7
   minY: 0
@@ -2087,6 +2101,10 @@ PrefabInstance:
     - target: {fileID: 9148981698378795748, guid: b328e254d62850049951277c23cff2d4, type: 3}
       propertyPath: OwnershipTransfer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148981698378795749, guid: b328e254d62850049951277c23cff2d4, type: 3}
+      propertyPath: m_PositionModel.SynchronizeEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9148981698378795750, guid: b328e254d62850049951277c23cff2d4, type: 3}
       propertyPath: m_RootOrder
