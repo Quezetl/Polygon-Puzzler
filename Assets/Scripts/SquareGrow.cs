@@ -34,12 +34,8 @@ public class SquareGrow : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-
-        top.localPosition = new Vector3(0, sprite.size.y / 2, 0);
-        bottom.localPosition = new Vector3(0, -sprite.size.y / 2, 0);
-
-        if (Physics2D.OverlapBox(top.position, new Vector2(1.9f, 0.1f), transform.eulerAngles.z, lMask) && Physics2D.OverlapBox(bottom.position, new Vector2(1.9f, 0.1f), transform.eulerAngles.z, lMask))
+    {   
+        if (Physics2D.OverlapBox(top.position, new Vector2(.9f, 0.05f), transform.eulerAngles.z, lMask) && Physics2D.OverlapBox(bottom.position, new Vector2(.9f, 0.05f), transform.eulerAngles.z, lMask))
         {
             canGrow = false;
         }
