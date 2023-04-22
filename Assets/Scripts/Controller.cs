@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
+using Photon.Pun;
 
 public class Controller : MonoBehaviour
 {
@@ -11,11 +9,12 @@ public class Controller : MonoBehaviour
 
     float horizontalMove = 0f;
     bool jump = false;
+    PhotonView view;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        view = GetComponent<PhotonView>();
     }
 
     void Update()
@@ -32,7 +31,10 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        controller.Move(horizontalMove, false, jump);
-        jump = false;
+        if (view.IsMine)
+        {
+            controller.Move(horizontalMove, false, jump);
+            jump = false;
+        }
     }
 }
