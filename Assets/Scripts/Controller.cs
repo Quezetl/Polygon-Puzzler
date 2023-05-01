@@ -29,8 +29,13 @@ public class Controller : MonoBehaviour
         // horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
         horizontalMove = joystick.Horizontal * speed;
 
-        if (Input.GetButtonDown("Jump"))
-        {
+        // if (Input.GetButtonDown("Jump"))
+        // {
+        //     jump = true;
+        // }
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
+            // This code will be executed when the user touches the screen
             jump = true;
         }
 
