@@ -34,10 +34,10 @@ public class Controller : MonoBehaviour
         //     jump = true;
         // }
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
-            // This code will be executed when the user touches the screen
-            jump = true;
-        }
+        // if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
+        //     // This code will be executed when the user touches the screen
+        //     jump = true;
+        // }
 
     }
 
@@ -49,5 +49,9 @@ public class Controller : MonoBehaviour
             controller.Move(horizontalMove, false, jump);
             jump = false;
         }
+    }
+
+    void toggleJumpBoolean(){
+        jump = true;
     }
 }
