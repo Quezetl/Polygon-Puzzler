@@ -14,9 +14,20 @@ public class SpawnPlayers : MonoBehaviour
 
     private void Start()
     {
+        spawnPlayers();
+    }
+
+    private void Update()
+    {
+        if (GetComponent<BoxCollider2D>().CompareTag("Player"))
+        {
+            spawnPlayers();
+        }
+    }
+
+    void spawnPlayers()
+    {
         Vector2 randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         PhotonNetwork.Instantiate(playerPrefab.name, randomPosition, Quaternion.identity);
     }
-
-
 }
