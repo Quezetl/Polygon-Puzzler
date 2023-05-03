@@ -1878,7 +1878,7 @@ GameObject:
   - component: {fileID: 818393967}
   - component: {fileID: 818393966}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: JumpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8786022213445188887, guid: 05429abb00b702f4d939cce7f28a72f9, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -1960,7 +1960,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &818393967
 MonoBehaviour:
   m_ObjectHideFlags: 0

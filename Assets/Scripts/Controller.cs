@@ -39,6 +39,20 @@ public class Controller : MonoBehaviour
         //     jump = true;
         // }
 
+        // if (player presses jump button){ jump = true; call jumpButton function}
+        // if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began){
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+        //     Raycast hit;
+
+        //     if(Physics.Raycast(ray, out hit)){
+        //         if(hit.GameObject.name == "JumpButton"){
+        //             Debug.Log("Jump button pressed!");
+        //         }
+        //     }
+        // }
+
+        
+
     }
 
     // Update is called once per frame
@@ -51,7 +65,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    void toggleJumpBoolean(){
-        jump = true;
-    }
+    // void toggleJumpBoolean(){
+    //     jump = true;
+    // }
 }
