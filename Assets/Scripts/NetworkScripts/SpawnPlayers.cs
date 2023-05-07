@@ -11,10 +11,14 @@ public class SpawnPlayers : MonoBehaviour
     public float maxX;
     public float minY;
     public float maxY;
+    Vector2 randomPosition;
+    GameObject player;
 
     private void Start()
     {
-        spawnPlayers();
+        PhotonNetwork.AutomaticallySyncScene = true;
+        randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        player = PhotonNetwork.Instantiate(playerPrefab.name, randomPosition, Quaternion.identity);
     }
 
     private void Update()
@@ -25,9 +29,15 @@ public class SpawnPlayers : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            spawnPlayers();
+        }
+    }
     void spawnPlayers()
     {
-        Vector2 randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-        PhotonNetwork.Instantiate(playerPrefab.name, randomPosition, Quaternion.identity);
+        player.transform.position = randomPosition;
     }
 }
