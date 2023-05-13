@@ -6,19 +6,13 @@ using Photon.Pun;
 public class SpawnPlayers : MonoBehaviour
 {
     public GameObject playerPrefab;
-
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
-    Vector2 randomPosition;
+    public Transform spawn;
     GameObject player;
 
     private void Start()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-        player = PhotonNetwork.Instantiate(playerPrefab.name, randomPosition, Quaternion.identity);
+        player = PhotonNetwork.Instantiate(playerPrefab.name, spawn.position, Quaternion.identity);
     }
 
     private void Update()
@@ -38,6 +32,6 @@ public class SpawnPlayers : MonoBehaviour
     }
     void spawnPlayers()
     {
-        player.transform.position = randomPosition;
+        player.transform.position = spawn.position;
     }
 }
