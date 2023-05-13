@@ -183,6 +183,7 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
